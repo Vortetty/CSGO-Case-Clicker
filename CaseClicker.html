@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>CaseClicker</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link href='https://fonts.googleapis.com/css?family=Rajdhani:600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/stylesheet.css" media="screen" title="no title" charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script>
+</script>
+  </head>
+  <body>
+    <div class="container noselect">
+      <div class="notification hidden" id="notif">This is a Work-In-Progress Case Clicker Game for CS:GO.</div>
+      <div class="navbar">
+        <ul>
+          <li><a href="https://KingofKFCJamal.github.io/CaseClicker" class="headerLogo"></a></li>
+          <div class="settings"></div>
+          <div class="about">About</div>
+        </ul>
+      </div>
+      <div class="settingsList hidden">
+        <li><h1>SETTINGS</h1></li>
+        <li>Disable Popup: <input type="checkbox" id="popupCheckbox"></li>
+			<div class="audio">
+				<div class="sg">
+					&nbsp;&nbsp;<audio id="startgame" src="sounds/start-game.mp3" type="audio/mp3"></audio><input type="image" src="https://i.imgur.com/DerV5hu.png" onclick="audiosg();"/><input type="image" src="https://i.imgur.com/jHVbUvE.png" onclick="audiosgup();"  value="Volume Max"/><input type="image" src="https://i.imgur.com/SwyIqRg.png" onclick="audiosgdown();"  value="Volume Lowered"/><input type="image" src="https://i.imgur.com/tViMF8c.png" onclick="audiosgmute();"  value="Volume Mute"/><b><font size="56" style="color:white;">You lost</font></b><br>
+				</div>
+				<div class="be">
+					&nbsp;&nbsp;<audio id="botentered" src="sounds/new-item.mp3" type="audio/mp3"></audio><input type="image" src="https://i.imgur.com/DerV5hu.png" onclick="audiobe();"/><input type="image" src="https://i.imgur.com/jHVbUvE.png" onclick="audiobeup();"  value="Volume Max"/><input type="image" src="https://i.imgur.com/SwyIqRg.png" onclick="audiobedown();"  value="Volume Lowered"/><input type="image" src="https://i.imgur.com/tViMF8c.png" onclick="audiobemute();"  value="Volume Mute"/><b><font size="56" style="color:white;">Bot joins</font></b><br>
+				</div>
+				<div class="won">
+					&nbsp;&nbsp;<audio id="youwon" src="sounds/win-pot.mp3" type="audio/mp3"></audio><input type="image" src="https://i.imgur.com/DerV5hu.png" onclick="audiowon();"/><input type="image" src="https://i.imgur.com/jHVbUvE.png" onclick="audiowonup();"  value="Volume Max"/><input type="image" src="https://i.imgur.com/SwyIqRg.png" onclick="audiowondown();"  value="Volume Lowered"/><input type="image" src="https://i.imgur.com/tViMF8c.png" onclick="audiowonmute();"  value="Volume Mute"/><b><font size="56" style="color:white;">You won</font></b><br>
+				</div>
+				<div class="a">
+					&nbsp;&nbsp;<audio id="accepted" src="sounds/click.wav" type="audio/wav"></audio><input type="image" src="https://i.imgur.com/DerV5hu.png" onclick="audioa();"/><input type="image" src="https://i.imgur.com/jHVbUvE.png" onclick="audioaup();"  value="Volume Max"/><input type="image" src="https://i.imgur.com/SwyIqRg.png" onclick="audioadown();"  value="Volume Lowered"/><input type="image" src="https://i.imgur.com/tViMF8c.png" onclick="audioamute();"  value="Volume Mute"/><b><font size="56" style="color:white;">Accepted</font></b><br>
+				</div>
+				<div class="mc">
+					&nbsp;&nbsp;<audio id="menu" src="sounds/menuclick.wav" type="audio/wav"></audio><input type="image" src="https://i.imgur.com/DerV5hu.png" onclick="audiomc();"/><input type="image" src="https://i.imgur.com/jHVbUvE.png" onclick="audiomcup();"  value="Volume Max"/><input type="image" src="https://i.imgur.com/SwyIqRg.png" onclick="audiomcdown();"  value="Volume Lowered"/><input type="image" src="https://i.imgur.com/tViMF8c.png" onclick="audiomcmute();"  value="Volume Mute"/><b><font size="56" style="color:white;">Menu</font></b><br>
+				</div>
+				<div class="ub">
+					&nbsp;&nbsp;<audio id="unbox" src="sounds/itemreveal.mp3" type="audio/mp3"></audio><input type="image" src="https://i.imgur.com/DerV5hu.png" onclick="audioub();"/><input type="image" src="https://i.imgur.com/jHVbUvE.png" onclick="audioubup();"  value="Volume Max"/><input type="image" src="https://i.imgur.com/SwyIqRg.png" onclick="audioubdown();"  value="Volume Lowered"/><input type="image" src="https://i.imgur.com/tViMF8c.png" onclick="audioubmute();"  value="Volume Mute"/><b><font size="56" style="color:white;">Unbox</font></b><br>
+				</div>
+			</div>
+		<div class="clearGameState">Clear Game Save</div>
+      </div>
+      <div class="aboutContainer">
+        <div class="aboutInfo">
+          <div class="aboutHeader">Welcome to CaseClicker.</div>
+          <div class="aboutBody">CaseClicker is an incremental clicker game based around csgo and the jackpot/skin community. The goal is to open cases and get rich.</div>
+          <div class="aboutDevelopers">
+            <div class="aboutDev">
+              <a class="aboutDevName" href="https://steamcommunity.com/id/bnned">banned</a>
+              <div class="aboutDevDesc">With CSGOClicker just being a thought, banned took it on as a learners project. Since version one, CSGOClicker has come a long way.</div>
+            </div>
+            <div class="aboutDev">
+			  <a class="aboutDevName" href="https://steamcommunity.com/id/roflzilla_">roflzilla</a>
+              <div class="aboutDevDesc">Helping with logic and ideas, roflzilla assists in bringing the project to life.</div>
+            </div>
+			<div class="aboutDev">
+			  <a class="aboutDevName" href="https://steamcommunity.com/id/KingofKFC">King of KFC Jamal</a>
+              <div class="aboutDevDesc">Continuing the project by editing and providing updates for it.</div>
+            </div>
+          </div>
+          <div class="aboutLinks"></div>
+        </div>
+      </div>
+      <div class="tooltipAnchor"></div>
+      <div class="main">
+        <div class="modalWindow">
+          <div class="modalMain">
+
+          </div>
+        </div>
+        <canvas id="drawing"></canvas>
+        <!-- <canvas id="canvas"></canvas> -->
+        <div class="left">
+          <div class="display">
+            <div class="jackpot">
+              <div class="jackpotTopContainer">
+                <div class="jackpotTop">
+                  <!--
+                  <div class="canvasContainer">
+        						<canvas id="canvasCircle" width="450" height="450"></canvas>
+        					</div>
+                -->
+                  <div class="jackpotStats">
+                    <div class="jackpotCountDownLabel">Time Left</div>
+                    <div class="jackpotCountDown">00</div>
+                    <div class="winnerIs"></div>
+                    <div class="jackpotCurrentWorth"></div>
+                    <div class="jackpotPercentOfTickets"></div>
+                  </div>
+                  <div class="depositorLabel">
+                    <div class="depositorNameLabel">Name</div>
+                    <div class="depositorPriceLabel">Price</div>
+                    <div class="depositorItemsLabel">Items</div>
+                  </div>
+                </div>
+              </div>
+              <div class="jackpotBottomContainer">
+                  <div class="depositorMainInfo">
+
+                  </div>
+                  <div class="depositorContainer">
+                    <!--
+                    <div class="jackpotDepositor">
+                      <div class="depositorInfo">
+                        <img src="http://i.imgur.com/BzuCWzL.png" class="depositorProPic" id="">
+                        <div class="depositorName">Platinum (diff7)</div>
+                        <div class="depositorValue">$942.65</div>
+                        <div class="depositorSkinContainer">
+                          <div class="depositorSkin">
+                            <div class="itemPrice">$5.50</div>
+                            <img src="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  -->
+                  </div>
+              </div>
+            </div>
+            <div class="unboxing">
+              <div class="backgroundImage"></div>
+              <div class="caseDisplay" id="case">
+                <img src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFUuh6qZJmlD7tiyl4OIlaGhYuLTzjhVupJ12urH89ii3lHlqEdoMDr2I5jVLFFSv_J2Rg/240fx182f" id="caseDisplayImage" />
+                <div class="caseInfoContainer">
+                  <div class="caseName" id="caseName"></div>
+                  <div class="priceContainer">
+                    <div class="casePrice" id="casePrice"></div>
+                    <div class="keyPrice" id="keyPrice"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="mainInfo">
+            <div class="mainInfoLabel wallet">Wallet: <span class="money" id="money"></span></div>
+            <div class="mainInfoLabel inv" id="invSpace">Inventory Space: <span class="inventorySpace" id="inventorySpace"></span> <div class="mainInfoLabelWarning tt" data-tt="Inventory over max capacity."><i class="fa fa-exclamation-triangle"></i></div></div>
+          </div>
+          <div class="tabContainer">
+            <div class="tab active" id="inventoryTab">Inventory</div>
+            <div class="tab" id="upgradeTab">Shop</div>
+            <div class="tab" id="caseTab">Case</div>
+            <div class="tab" id="jackpotTab">Jackpot</div>
+			<div class="tab" id="coinTab">Coin Flip</div>
+          </div>
+          <div class="rightMain">
+            <div class="inventoryContainer">
+              <div class="inventoryTagContainer"><span class="inventoryTag">Inventory</span><span class="inventoryValue">Value: </span></div>
+              <div class="inventoryItemContainer">
+
+              </div>
+              <!--
+              <div class="inventoryItem">
+                <div class="itemPrice">$5.50</div>
+                <img src="http://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf0v73dS9D69O4q4eHmPT_DLfYkWNF18lwmO7Eu4mh2lXj-RJtajjxJoWcIQ83Y13X-QO2ye_ojJ61u8yfynUwvXYq4XbD30vgIiQpgfY/360fx360f">
+              </div>
+            -->
+            </div>
+            <div class="upgradeContainer">
+              <div class="stackingUpgradeContainer">
+
+              </div>
+              <div class="permUpgradeContainer">
+                <div class="permUpgrade" id="permUpgrade1"><i class="fa fa-cubes fa-2x"></i><span class="permUpgradeLabel" id="permUpgradeLabel1">..........</span></div>
+                <div class="permUpgrade locked" id="permUpgrade2"><i class="fa fa-exchange fa-2x"></i><span class="permUpgradeLabel" id="permUpgradeLabel2">..........</span></div>
+                <div class="permUpgrade locked" id="permUpgrade3"><i class="fa fa-cubes fa-2x"></i><span class="permUpgradeLabel" id="permUpgradeLabel3">..........</span></div>
+                <div class="permUpgrade locked" id="permUpgrade4"><i class="fa fa-cubes fa-2x"></i><span class="permUpgradeLabel" id="permUpgradeLabel4">..........</span></div>
+              </div>
+              <!--
+              <div class="upgrade cantAfford">
+                <div class="upgradePicture"></div>
+                <div class="upgradeInfo">
+                  <div class="upgradeName">Test Upgrade</div>
+                  <div class="upgradeDesc">Test Description lorem ipsum dolar sit amet</div>
+                  <div class="upgradePrice">$999999999.00</div>
+                </div>
+              </div>
+            -->
+            </div>
+            <div class="caseContainer">
+              <!--
+              <div class="case locked">
+                <div class="casePicture"></div>
+                <div class="caseInfo">
+                  <div class="caseName"></div>
+                  <div class="caseValue"></div>
+                </div>
+              </div>
+            -->
+            </div>
+            <div class="jackpotRightContainer">
+              <div class="jackpotDifficultyContainer">
+                <div class="jackpotDifficulty active" id="low">Low</div>
+                <div class="jackpotDifficulty" id="medium">Medium</div>
+                <div class="jackpotDifficulty" id="high">High</div>
+              </div>
+              <div class="inventoryTagContainer"><span class="inventoryTag">Inventory</span><span class="inventoryValue">Value: </span></div>
+              <div class="jackpotRightPlayer"></div>
+              <div class="jackpotRightSTBTag">Skins to bet:</div>
+              <div class="jackpotRightToBet"></div>
+              <div class="jackpotRightInfo">
+                <div class="jackpotRightValue"><span class="spanTag">Value: </span><span class="jackpotRightValueTotal">$0.00</span></div>
+                <div class="jackpotRightSkins"><span class="spanTag">Skins: </span><span class="jackpotRightSkinsTotal">0/6</span></div>
+                <div class="jackpotRightStartButton">Enter Jackpot</div>
+              </div>
+            </div>
+			<div class="coinContainer"><br><br><br>
+			<center><button onclick="myFunction()"><img src="http://i.imgur.com/Ga7WRKc.png"></button></center>
+			</div>
+          <div class="tradeButtonContainer">
+            <div class="tradeButton" id="acceptButton">ACCEPT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/script.js" type="text/javascript"></script>
+  </body>
+</html>
